@@ -1,0 +1,10 @@
+[package]
+name = "CodeForces"
+version = "0.1.0"
+edition = "2021"
+description = ""
+authors = ["Krystian Krakowski <kkrakowski22@gmail.com>"]
+readme = "README.md"
+rust-version = "1.75"
+
+[dependencies]
