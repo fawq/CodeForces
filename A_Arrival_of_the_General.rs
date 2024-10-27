@@ -9,7 +9,7 @@ fn main() {
     };
 
     let number: u8 = read_line().trim().parse().unwrap();
-    let soldiers: Vec<u8> = read_line()
+    let soldiers_height: Vec<u8> = read_line()
         .split_ascii_whitespace()
         .map(|x| x.parse().unwrap())
         .collect();
@@ -18,13 +18,13 @@ fn main() {
     let mut min_height: u8 = 101;
     let mut min_index: usize = 0;
 
-    for (index, height) in soldiers.iter().enumerate() {
-        if *height > max_height {
-            max_height = *height;
+    for (index, soldier_height) in soldiers_height.iter().enumerate() {
+        if *soldier_height > max_height {
+            max_height = *soldier_height;
             max_index = index;
         }
-        if *height <= min_height {
-            min_height = *height;
+        if *soldier_height <= min_height {
+            min_height = *soldier_height;
             min_index = index;
         }
     }
