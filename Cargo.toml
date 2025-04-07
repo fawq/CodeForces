@@ -5,6 +5,6 @@ edition = "2021"
 description = ""
 authors = ["Krystian Krakowski <kkrakowski22@gmail.com>"]
 readme = "README.md"
-rust-version = "1.75"
+rust-version = "1.78"
 
 [dependencies]
