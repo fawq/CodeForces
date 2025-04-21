@@ -1,3 +1,5 @@
+use std::iter;
+
 fn read<T: std::str::FromStr>() -> T {
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).ok();
@@ -20,8 +22,15 @@ fn read_tuple<T: std::str::FromStr, S: std::str::FromStr>() -> (T, S) {
 }
 
 fn main() {
-    let (n, m) = read_tuple::<u8, u128>();
-    println!("{} {}", n, m);
-    let mut v = read_vec::<u128>();
-    v.sort();
+    let (n, m) = read_tuple::<usize, usize>();
+
+    for index in 0..n {
+        if index % 2 == 0 {
+            println!("{}", iter::repeat('#').take(m).collect::<String>());
+        } else if index % 4 == 1 {
+            println!("{}{}", iter::repeat('.').take(m-1).collect::<String>(), '#');
+        } else {
+            println!("{}{}", '#', iter::repeat('.').take(m-1).collect::<String>());
+        }
+    }
 }
