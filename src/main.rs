@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn read<T: std::str::FromStr>() -> T {
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).ok();
@@ -19,9 +21,18 @@ fn read_tuple<T: std::str::FromStr, S: std::str::FromStr>() -> (T, S) {
     (t, s)
 }
 
+fn count_occurrences<T: Eq + std::hash::Hash, I: IntoIterator<Item = T>>(line: I) -> HashMap<T, usize>
+{
+    line.into_iter().fold(HashMap::new(), |mut counter, item| {
+        *counter.entry(item).or_insert(0) += 1;
+        counter
+    })
+}
+
 fn main() {
     let (n, m) = read_tuple::<u8, u128>();
     println!("{} {}", n, m);
-    let mut v = read_vec::<u128>();
+    let mut v = read_vec::<u64>();
     v.sort();
+    count_occurrences(v);
 }
