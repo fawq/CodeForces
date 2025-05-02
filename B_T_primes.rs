@@ -49,7 +49,7 @@ fn print_if_t_prime(number: u64) {
 
 fn main() {
     _ = read::<String>();
-    let numbers = read_vec::<u64>();
+    let numbers: Vec<u64> = read_vec();
 
     for number in numbers {
         print_if_t_prime(number);
